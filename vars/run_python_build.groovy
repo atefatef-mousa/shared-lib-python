@@ -12,7 +12,7 @@ pipeline{
             steps{
                 script{
                     def dockerx = new org.iti.docker()
-                    dockerx.build("python_build", "${BUILD_NUMBER}")
+                    dockerx.build("python_build_with_global", "${BUILD_NUMBER}")
                 }
             }
  
@@ -24,7 +24,7 @@ pipeline{
                 script{
                     def dockerx = new org.iti.docker()
                     dockerx.login("${DOCKER_USER}", "${DOCKER_PASS}")
-                    dockerx.push("python_build","${DOCKER_USER}", "${BUILD_NUMBER}")
+                    dockerx.push("python_build_with_global","${DOCKER_USER}", "${BUILD_NUMBER}")
                 }
             }
         }
